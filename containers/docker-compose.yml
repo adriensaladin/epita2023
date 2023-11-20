@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  flask_app:
+    build: ./flask_app
+    ports:
+      - "5000:5000"
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - flask_app
+
