@@ -8,8 +8,11 @@ RUN apt-get update && \
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir /etc/nginx/modsecurity/
+COPY modsecurity.conf /etc/nginx/modsecurity/modsecurity.conf
+COPY crs-setup.conf /etc/nginx/modsecurity/
 
-RUN cp /etc/modsecurity/crs/crs-setup.conf /etc/nginx/modsecurity/
+#RUN cp /etc/modsecurity/crs/crs-setup.conf /etc/nginx/modsecurity/
+
 
 RUN nginx -V
 RUN updatedb
